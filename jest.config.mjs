@@ -5,6 +5,14 @@
 
 /** @type {import('jest').Config} */
 const config = {
+  testEnvironment: "jsdom",
+  transform: {
+    "^.+\\.[jt]sx?$": "babel-jest",
+  },
+  moduleNameMapper: {
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+  },
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.mjs"],
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
