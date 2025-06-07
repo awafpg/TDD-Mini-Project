@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import LoginPage from "./index.jsx";
+import LoginPage from "./LoginPage.jsx";
 import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
 
@@ -27,8 +27,8 @@ describe("LoginPage", () => {
     axios.post.mockResolvedValue({ data: { token: mockToken } });
 
     renderWithRouter(<LoginPage />);
-    userEvent.type(screen.getByPlaceholderText("Email"), "eve.holt@reqres.in");
-    userEvent.type(screen.getByPlaceholderText("Password"), "cityslicka");
+    userEvent.type(screen.getByPlaceholderText("Email"), "miawmiaw@gmail.com");
+    userEvent.type(screen.getByPlaceholderText("Password"), "qwerty123");
     userEvent.click(screen.getByRole("button", { name: /login/i }));
 
     await waitFor(() => {
